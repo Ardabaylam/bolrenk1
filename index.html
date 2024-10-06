@@ -14,7 +14,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Flex başlangıcı */
             min-height: 100vh;
             text-align: center;
             position: relative;
@@ -73,6 +73,16 @@
             transform: scale(1.05);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
+        .about {
+            margin: 100px 20px;
+            max-width: 800px;
+            text-align: left;
+            z-index: 1; /* About kısmı üstte olacak */
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
         footer {
             margin-top: 40px;
             font-size: 14px;
@@ -85,11 +95,12 @@
         footer a:hover {
             text-decoration: underline;
         }
-        .about {
-            margin: 100px 20px;
-            max-width: 800px;
-            text-align: left;
-            z-index: 1; /* About kısmı üstte olacak */
+        .bio {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .by {
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -125,11 +136,10 @@
     </div>
 
     <div class="about" id="about">
-        <h2>Hakkında</h2>
-        <p>Ad: Kübra</p>
-        <p>Soyad: Bayrak</p>
-        <p>Doğum Yılı: 1999 (29 Kasım)</p>
-        <p>Hobi: Resim yapmak</p>
+        <h2>Biyografi</h2>
+        <p class="bio">Merhaba! Ben Kübra Bayrak, 1999 yılında doğdum ve sanat dünyasına olan tutkum, çocukluğumdan beri beni yönlendiren bir yol oldu.</p>
+        <p class="bio">Küçük yaşlardan itibaren resim yapmaya başladım ve bu hobi zamanla hayatımın vazgeçilmez bir parçası haline geldi. Sanat, duygularımı ifade etmenin en güzel yolu; her fırça darbesinde kendimi yeniden keşfediyorum.</p>
+        <p class="bio">Renklerin ve biçimlerin gücüne inanıyorum. Her bir eserim, farklı bir hikaye anlatıyor ve izleyicilerimle bir bağ kurmayı hedefliyorum. Sanatın, insanları bir araya getiren ve onları düşündüren bir güç olduğuna inanıyorum.</p>
         <p>Daha fazlası için takip etmeyi unutmayın: <a href="https://www.instagram.com/bolrenk" target="_blank">@bolrenk</a></p>
     </div>
 
@@ -137,6 +147,26 @@
         <p>İletişim için: <a href="https://www.instagram.com/kubraabayrak" target="_blank">@kubraabayrak</a></p>
     </footer>
 
+    <div class="by">
+        <p>by <a href="https://www.instagram.com/ardaa.b7" target="_blank">AldaBaylam</a></p>
+    </div>
+
+    <script>
+        // Sayfayı kaydırma fonksiyonu
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                // Kaydırma işlemi
+                targetElement.scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>
-
